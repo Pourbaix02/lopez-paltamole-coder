@@ -1,0 +1,79 @@
+/* Navbar.css */
+
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+  border: none; 
+  margin-top: 55px;
+  display: flex;
+  align-items: center; 
+  padding: 0;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+}
+
+/* Ajustar anchos */
+.logo-section {
+  flex: 2; /* 40% de la barra de navegación */
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.options-section {
+  flex: 1; /* 20% de la barra de navegación */
+  display: flex;
+  justify-content: center;
+  background-color: #D2B400;
+  border-radius: 15px;
+}
+
+.cart-section {
+  flex: 2; /* 40% de la barra de navegación */
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+/* Estilos para los enlaces */
+.fixed-nav .nav-link {
+  color: black; /* Texto negro */
+}
+
+.fixed-nav .nav-link:hover {
+  color: white; /* Cambia a blanco al pasar el cursor */
+}
+
+/* Navbar.css */
+
+.cart-container {
+  position: relative; /* Necesario para posicionar el badge de forma absoluta */
+}
+
+.cart-badge {
+  position: absolute; /* Posicionamiento absoluto para superponer el badge */
+  top: -10px; /* Ajusta según necesites para moverlo hacia arriba */
+  right: -10px; /* Ajusta según necesites para moverlo hacia la derecha */
+}
+
+@media (max-width: 768px) {
+  .logo-section, .cart-section {
+    flex: 1; /* Reducir tamaño en pantallas más pequeñas */
+  }
+  .options-section {
+    flex: 2; /* Aumentar tamaño del menú */
+  }
+}

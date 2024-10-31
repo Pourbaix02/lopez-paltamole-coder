@@ -1,0 +1,49 @@
+.main-container {
+  background-color: #D2B400;
+}
+
+.first-text-section {
+  display: flex;
+  margin-bottom: 80px;
+  margin-top: 80px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  color: #fff; /* Color del texto, ajusta según tu paleta */
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+
+}
+.first-text-section p h1 {
+  text-align: center;
+  display: flex;
+  width: 75%;
+}
+
+
+
+.landing-second-section-container {
+  background-color: #556FAD;
+  width: 100%; 
+  height: 900px; 
+
+}
+
+.landing-third-section-container {
+  background-color: #ADCD68;
+  width: 100%; 
+  height: 900px; 
+
+}
+
+.landing-forth-section-container {
+  background-color: #556FAD;
+  width: 100%; 
+  height: 900px; 
+
+}
+

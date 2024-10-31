@@ -1,0 +1,35 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial, sans-serif; /* Cambia la fuente según tu preferencia */
+  line-height: 1.6; /* Mejora la legibilidad */
+}
+
+ul, ol {
+  list-style: none;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Hereda el color del texto */
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
