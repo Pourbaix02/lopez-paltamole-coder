@@ -1,22 +1,21 @@
-import Navbar from './components/Navbar'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import landing1 from './assets/landing1.jpg'
-import ItemListContainer from './components/ItemListContainer'
-import './App.css'
-
+import Navbar from './components/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import landing1 from './assets/landing1.jpg';
+import ItemListContainer from './components/ItemListContainer';
+import './App.css';
 
 function App() {
-  
-
   return (
     <>
       <Navbar />
       <div className="main-container">
         <div className="landing-image-container">
-          <img src={landing1} alt="" srcSet="" />
+          <img src={landing1} alt="landing background" />
+          <div className="item-list-overlay">
+            <ItemListContainer />
+          </div>
         </div>
         <div className="first-text-section">
-          <ItemListContainer greeting="¡Hola!" />
           <p>
             Deléitate con la fusión perfecta de sabores Tex-Mex, donde la
             autenticidad se encuentra con un estilo contemporáneo.
@@ -30,4 +29,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
