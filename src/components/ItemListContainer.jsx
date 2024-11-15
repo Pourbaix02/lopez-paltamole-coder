@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import ItemCount from "./ItemCount";
 import { fetchMenuData } from "../utils/data";
 import ItemList from "./ItemList";
 
@@ -10,10 +9,7 @@ const ItemListContainer = (props) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
 
-    const onAdd = (cantidad) => {
-        alert(`Agregaste al carrito ${cantidad} de productos`)
-    }
-
+    
     
     useEffect(()=>{
         setLoading(true)

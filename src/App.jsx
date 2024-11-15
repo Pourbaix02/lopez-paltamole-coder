@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import landing1 from './assets/landing1.jpg';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import './App.css';
 
 function App() {
@@ -13,6 +14,12 @@ function App() {
           <img src={landing1} alt="landing background" />
           <div className="item-list-overlay">
             <ItemListContainer />
+            <div>
+            <ItemDetailContainer />
+          </div>
+          </div>
+          <div>
+            <ItemDetailContainer />
           </div>
         </div>
         <div className="first-text-section">

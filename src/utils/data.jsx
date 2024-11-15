@@ -2,6 +2,7 @@
 
 const menuData = [
     {
+      id:1,
       title: "Combo 1",
       description: "Tacos chillis supreme + 100g de papas + 1 bebida de 300ml. ",
       price: 7990,
@@ -11,6 +12,7 @@ const menuData = [
       stock: 10
     },
     {
+      id:2,
       title: "Combo 2",
       description: "1 burrito clásico + 100g de papas + 1 bebida de 300ml.",
       price: 8990,
@@ -19,6 +21,7 @@ const menuData = [
       image: "/images/combos/combo2.jpg"
     },
     {
+      id:3,
       title: "Combo 3",
       description: "2 tacos clásicos + 1 burrito clásico + 100g de papas + 1 bebida.",
       price: 14990,
@@ -28,6 +31,7 @@ const menuData = [
       stock: 10
     },
     {
+      id:4,
       title: "Combo 4",
       description: "2 tacos clásicos + 1 burrito clásico + 1 quesadilla + 200g papas + 2 bebidas de 300ml.",
       price: 21990,
@@ -37,12 +41,23 @@ const menuData = [
       stock: 10
     },
     {
+      id:5,
       title: "Combo Cheese",
       description: "1 quesadilla + 100g de papas + 1 bebida.",
       price: 9190,
       options: ["pollo", "vegetariano"],
       category: "combo",
       image: "/images/combos/combo-cheese.jpg",
+      stock: 10
+    },
+    {
+      id: 6,
+      title: "Mega Combo",
+      description: "4 tacos clásicos + 2 burritos clásicos + 1 quesadilla + 200g de papas + bebida 2 l.",
+      price: 33990,
+      options: ["pollo", "vegetariano"],
+      category: "combo",
+      image: "/images/combos/mega-combo.jpg",
       stock: 10
     }
   ];
@@ -191,4 +206,25 @@ const menuData = [
 };
 
 
-  
+export const fetchOneMenuData = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      
+      const shouldFail = Math.random() < 0.2;
+//tambien quiero probar cuando falle
+      if (shouldFail) {
+        reject(new Error("Hubo un error al obtener el plato seleccionado"));
+      } else {
+        
+        const menuItem = menuData.find((item) => item.id === id);
+
+        if (menuItem) {
+          resolve(menuItem);
+        } else {
+         
+          reject(new Error(`No se encontró ningún elemento con el ID: ${id}`));
+        }
+      }
+    }, 2000); 
+  });
+};
