@@ -1,5 +1,9 @@
+import { useNavigate } from "react-router-dom";
 
 const Item = ({ product }) => {
+
+  const navigate = useNavigate()
+
   return (
     <>
       <div className="col-md-6 col-lg-4 my-2">
@@ -31,7 +35,7 @@ const Item = ({ product }) => {
                   Precio: ${product.price}
                 </p>
                 <button
-                  className="btn btn-primary btn-sm"
+                  className="btn btn-primary btn-sm" onClick={()=> navigate(`/item/${product.id}`)}
                   style={{ padding: "0.3rem 0.5rem", fontSize: "0.75rem" }}
                 >
                   Ver

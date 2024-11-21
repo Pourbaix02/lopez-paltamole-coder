@@ -2,6 +2,7 @@ import '../styles/Navbar.css';
 import Nav from 'react-bootstrap/Nav';
 import BrandLogo from './BrandLogo';
 import CartWidget from './CartWidget';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
 
@@ -10,24 +11,24 @@ function Navbar() {
   return (
     <>
       <Nav className="fixed-nav" activeKey="/home">
-        <div className="nav-section logo-section">
+        <NavLink className="nav-section logo-section" to="/">
           <BrandLogo />
-        </div>
+        </NavLink>
         <div className="nav-section options-section">
           <Nav.Item>
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link as={NavLink} to={"/"}>Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-1">Combos</Nav.Link>
+            <Nav.Link as={NavLink} to={"/category/combos"}>Combos</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2">Aperitivos</Nav.Link>
+            <Nav.Link as={NavLink} to={"/category/aperitivos"}>Aperitivos</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-3">Tacos</Nav.Link>
+            <Nav.Link as={NavLink} to={"/category/tacos"}>Tacos</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-4">Burritos</Nav.Link>
+            <Nav.Link as={NavLink} to={"/category/burritos"}>Burritos</Nav.Link>
           </Nav.Item>
         </div>
         <div className="nav-section cart-section">

@@ -7,7 +7,7 @@ const menuData = [
       description: "Tacos chillis supreme + 100g de papas + 1 bebida de 300ml. ",
       price: 7990,
       options: ["pollo", "vegetariano", "vegano"],
-      category: "combo",
+      category: "combos",
       image: "/images/combos/combo1.jpg",
       stock: 10
     },
@@ -17,15 +17,16 @@ const menuData = [
       description: "1 burrito clásico + 100g de papas + 1 bebida de 300ml.",
       price: 8990,
       options: ["pollo", "vegetariano", "vegano"],
-      category: "combo",
-      image: "/images/combos/combo2.jpg"
+      category: "combos",
+      image: "/images/combos/combo2.jpg",
+      stock:15
     },
     {
       id:3,
       title: "Flautas de Pollo",
       description: "4 flautas. Tortillas de trigo fritas, rellenas de pollo mechado y queso gouda. Acompañadas de salsa de la casa.",
       price: 5790,
-      category: "aperitivo",
+      category: "aperitivos",
       image: "/images/aperitivos/flautas-de-pollo.jpg",
       stock: 15
     },
@@ -34,7 +35,7 @@ const menuData = [
       title: "Nachos chili-carne",
       description: "Nachos con porotos y carne molida, bañados en queso fundido.",
       price: 6990,
-      category: "aperitivo",
+      category: "aperitivos",
       image: "/images/aperitivos/nachos-chili-carne.jpg",
       stock: 12
     },
@@ -79,8 +80,8 @@ const menuData = [
   export const fetchMenuData = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-          //esto lo hago para forzar fallas automaticas de mi mock API
-            const shouldFail = Math.random() < 0.2; // 20% de probabilidad de fallas
+          //esto lo hago para forzar fallas automaticas de mi mock API 10% de probabilidad de fallas
+            const shouldFail = Math.random() < 0.1;
 
             if (shouldFail) {
                 reject(new Error("Hubo un error al obtener los datos del menú"));
@@ -96,13 +97,13 @@ export const fetchOneMenuData = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       
-      const shouldFail = Math.random() < 0.2;
+      const shouldFail = Math.random() < 0.1;
 //tambien quiero probar cuando falle
       if (shouldFail) {
         reject(new Error("Hubo un error al obtener el plato seleccionado"));
       } else {
         
-        const menuItem = menuData.find((item) => item.id === id);
+        const menuItem = menuData.find((item) => item.id == id);
 
         if (menuItem) {
           resolve(menuItem);
