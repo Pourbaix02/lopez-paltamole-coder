@@ -1,33 +1,48 @@
-import React from 'react'
 
-const Item = ({product}) => {
+const Item = ({ product }) => {
   return (
     <>
-    
-            <div className="col-md-6 col-lg-4 mb-3" key={product.id}>
-                <div className="card" style={{ maxWidth: 540 }}>
-                    <div className="row no-gutters">
-                        <div className="col-md-4">
-                            <img src={product.image} className="card-img" alt={product.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }}/>
-                        </div>
-                        <div className="col-md-8">
-                            <div className="card-body" style={{ position: 'relative' }}>
-                                <h5 className="card-title">{product.title}</h5>
-                                <p className="card-text">
-                                    {product.description}
-                                </p>
-                                <p className="card-price" >
-                                    Precio: ${product.price}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div className="col-md-6 col-lg-4 my-2">
+        <div
+          className="card"
+          style={{ minHeight: 200, width: 400, fontSize: "0.85rem" }}
+        >
+          <div className="row no-gutters">
+            <div className="col-md-4">
+              <img
+                src={product.image}
+                className="card-img"
+                alt={product.title}
+                style={{ width: "100%", height: "160px", objectFit: "cover" }}
+              />
             </div>
+            <div className="col-md-8">
+              <div
+                className="card-body"
+                style={{ position: "relative", padding: "0.5rem" }}
+              >
+                <h5 className="card-title" style={{ fontSize: "1rem" }}>
+                  {product.title}
+                </h5>
+                <p className="card-text" style={{ fontSize: "0.75rem" }}>
+                  {product.description}
+                </p>
+                <p className="card-price" style={{ fontSize: "0.75rem" }}>
+                  Precio: ${product.price}
+                </p>
+                <button
+                  className="btn btn-primary btn-sm"
+                  style={{ padding: "0.3rem 0.5rem", fontSize: "0.75rem" }}
+                >
+                  Ver
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-
-</>
-  )
-}
-
-export default Item
+export default Item;
