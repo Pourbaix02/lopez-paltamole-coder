@@ -14,3 +14,4 @@ const ItemList = ({products}) => {
 export default ItemList
 
 //me falta el tema del ID y la actividad 3
+// añadir padding 

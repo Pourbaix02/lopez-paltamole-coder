@@ -6,10 +6,12 @@ import PageComplement from './components/PageComplement';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
     <>
+    <CartProvider>
     <BrowserRouter>
       <Header />
       <Navbar />
@@ -22,6 +24,7 @@ function App() {
   
     <PageComplement />
     </BrowserRouter>
+    </CartProvider>
     </>
   );
 }

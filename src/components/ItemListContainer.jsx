@@ -62,3 +62,5 @@ const ItemListContainer = (props) => {
     
 }
 export default ItemListContainer;
+
+// itemlist agregar un div con d-flex justify context space between

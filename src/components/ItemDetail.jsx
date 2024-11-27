@@ -1,11 +1,26 @@
+import { useState } from 'react'
 import ItemCount from './ItemCount'
+import { Button } from 'react-bootstrap'
+import { useCart } from '../context/CartContext'
 
 const ItemDetail = ({producto}) => {
-    const onAdd = (cantidad) => {
+    
+  
+  const [compra, setCompra] = useState(false)
+  const {addToCart} = useCart()
+
+  const onAdd = (cantidad) => {
         alert(`Agregaste al carrito ${cantidad} de productos`)
-    }
-
-
+        setCompra(true)
+        // let cartItem = {
+        //   name: producto.title,
+        //   image: producto.image,
+        //   price: producto.price,
+        //   id:producto.id,
+        // }
+    
+        addToCart(producto, cantidad)
+      }
 
     return (
       <div className="container d-flex justify-content-center align-items-center vh-100">
@@ -25,7 +40,7 @@ const ItemDetail = ({producto}) => {
               <h1 className="card-title mb-4">Detalle del producto: {producto.title}</h1>
               <p className="card-text">{producto.description}</p>
               <h3 className="text-success mb-4">Precio: ${producto.price}</h3>
-              <ItemCount stock={producto.stock} onAdd={onAdd} initial={1} />
+              {compra ? <Button> Ir al carrito </Button> : <ItemCount stock={producto.stock} onAdd={onAdd} initial={1} />}
             </div>
           </div>
         </div>
