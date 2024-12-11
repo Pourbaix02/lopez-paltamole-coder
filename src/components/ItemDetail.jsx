@@ -2,6 +2,7 @@ import { useState } from 'react'
 import ItemCount from './ItemCount'
 import { Button } from 'react-bootstrap'
 import { useCart } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 const ItemDetail = ({producto}) => {
     
@@ -40,7 +41,7 @@ const ItemDetail = ({producto}) => {
               <h1 className="card-title mb-4">Detalle del producto: {producto.title}</h1>
               <p className="card-text">{producto.description}</p>
               <h3 className="text-success mb-4">Precio: ${producto.price}</h3>
-              {compra ? <Button> Ir al carrito </Button> : <ItemCount stock={producto.stock} onAdd={onAdd} initial={1} />}
+              {compra ? <Button as={Link} to='/cart'> Ir al carrito </Button> : <ItemCount stock={producto.stock} onAdd={onAdd} initial={1} />}
             </div>
           </div>
         </div>
