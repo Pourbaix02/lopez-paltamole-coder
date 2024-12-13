@@ -1,13 +1,16 @@
 import { IoCartOutline } from "react-icons/io5";
 import Badge from 'react-bootstrap/Badge';
+import { useCart } from "../context/CartContext";
 
-const CartWidget = (props) => {
+const CartWidget = () => {
+  
+  const {cartQuantity} = useCart()
 
   return (
     <div className="cart-container">
       <IoCartOutline size={50} />
       <div className="cart-badge">
-        <Badge bg="danger" pill>{props.counter}</Badge>
+       {cartQuantity() > 0 && <Badge bg="danger" pill>{cartQuantity()}</Badge>} 
       </div>
     </div>
   );

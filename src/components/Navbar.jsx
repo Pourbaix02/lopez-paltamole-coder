@@ -32,7 +32,9 @@ function Navbar() {
           </Nav.Item>
         </div>
         <div className="nav-section cart-section">
-          <CartWidget counter={5}/>
+          <NavLink to='/cart' style={{color:'white', textDecoration:'none'}}>
+          <CartWidget/>
+          </NavLink>
         </div>
       </Nav>
     </>

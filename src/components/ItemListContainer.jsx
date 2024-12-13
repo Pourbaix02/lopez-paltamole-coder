@@ -4,6 +4,7 @@ import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import {db} from "../service/firebase";
+import Loader from "./Loader";
 
 
 
@@ -72,17 +73,7 @@ const ItemListContainer = (props) => {
             
 
             {loading ? (
-                <div 
-                    className="d-flex justify-content-center align-items-center" 
-                    style={{ height: '300px', backgroundColor: '#000' }}
-                >
-                    <div className="text-center">
-                        <div className="spinner-border" role="status" style={{ width: '3rem', height: '3rem', color: '#D2B400'}}>
-                            <span className="sr-only"/>
-                        </div>
-                        <p className="mt-3 text-white">Cargando, por favor espera...</p>
-                    </div>
-                </div>
+               <Loader />
             ) : (
                 <ItemList products={products} />
             )}

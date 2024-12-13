@@ -18,10 +18,10 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<ItemListContainer greeting={"¡Hola! Bienvenidos a Paltamole"} />} />
-        <Route path="/category/:categoryId" element={<ItemListContainer greeting={"¡Hola! Bienvenidos a Paltamole"} />} />
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
-        <Route path='/cart' element={<CartContainer />} />
+        <Route path="/" element={<ItemListContainer greeting={"¡Hola! Bienvenidos a Paltamole"}/>} />
+        <Route path="/category/:categoryId" element={<ItemListContainer greeting={"¡Hola! Bienvenidos a Paltamole"}/>} />
+        <Route path="/item/:id" element={<ItemDetailContainer/>} />
+        <Route path='/cart' element={<CartContainer/>} />
       </Routes>
   
     <PageComplement />
