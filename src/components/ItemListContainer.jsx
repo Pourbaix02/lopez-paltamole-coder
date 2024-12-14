@@ -14,16 +14,13 @@ const ItemListContainer = (props) => {
     const [loading, setLoading] = useState(false)
     const { categoryId } = useParams()
     
-    //Firebase
     useEffect(() => {
         setLoading(true)
-        //conectar con la coleeción
 
         const productsCollection = categoryId 
         ? query(collection(db, "products"), where("category", "==", categoryId)) 
         : collection(db, "products") 
 
-        // pedir los objectos
 
         getDocs(productsCollection)
         .then((res) => {
@@ -40,24 +37,6 @@ const ItemListContainer = (props) => {
         
 
     },[categoryId])
-
-
-    // useEffect(()=>{
-
-
-    //     setLoading(true)
-    //     fetchMenuData()
-    //     .then((res)=> {
-    //         if(categoryId) {
-    //         setProducts(res.filter((product) => product.category === categoryId))
-    //         } else {
-    //         setProducts(res)
-    //         }
-    //     })
-    //     .catch((error)=> console.log(error))
-    //     .finally(()=> setLoading(false))
-
-    // },[categoryId])
 
 
     return (

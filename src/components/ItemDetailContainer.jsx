@@ -1,6 +1,5 @@
 import  { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
-//import { fetchOneMenuData } from '../utils/data'
 import { useParams } from 'react-router-dom'
 import { collection, doc, getDoc } from 'firebase/firestore'
 import { db } from '../service/firebase'
@@ -8,7 +7,7 @@ import Loader from './Loader'
 
 const ItemDetailContainer = () => {
 
-    const [producto, setProducto] = useState({})
+    const [product, setProduct] = useState({})
     const [loading, setLoading] = useState(false)
     const {id} = useParams()
 
@@ -20,24 +19,16 @@ const ItemDetailContainer = () => {
       const docRef = doc(collectionProd, id)
 
       getDoc(docRef)
-      .then((res) => setProducto({id: res.id, ...res.data()}))
+      .then((res) => setProduct({id: res.id, ...res.data()}))
       .catch((error)=> console.log(error))
       .finally(() => setLoading(false))
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-
-    // useEffect(()=>{
-
-    //     fetchOneMenuData(id)
-    //     .then((res)=> setProducto(res))
-    //     .catch((error)=> console.log(error))
-
-
-    // },[])
 
   return (
     <div style={{ backgroundColor: '#000' }}>
-      {loading ? <Loader/> : <ItemDetail producto={producto}/> }
+      {loading ? <Loader/> : <ItemDetail product={product}/> }
     </div>
   )
 }

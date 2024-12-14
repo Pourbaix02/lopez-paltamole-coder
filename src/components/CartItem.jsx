@@ -13,7 +13,7 @@ const CartItem = ({ prod }) => {
         padding: "2rem",
       }}
     >
-      <img src={prod.img} alt={prod.title} style={{ width: "10rem" }} />
+      <img src={prod.image} alt={prod.title} style={{ width: "10rem" }} />
       <span>{prod.name}</span>
       <span>{prod.cantidad}</span>
       <span>{prod.price},00</span>

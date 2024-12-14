@@ -1,5 +1,6 @@
 import { useCart } from "../context/CartContext"
 import CartItem from "./CartItem"
+import { Link } from "react-router-dom"
 
 const CartList = () => {
 
@@ -16,7 +17,7 @@ const CartList = () => {
             padding: '2rem',
       }}>
         <button className="btn btn-danger" onClick={clear}>Borrar Carrito</button>
-        <button className="btn btn-success" onClick={clear}>Terminar Compra</button>
+        <Link className="btn btn-success" to='/checkout' onClick={clear}>Terminar Compra</Link>
       </div>
     </div>
   )
