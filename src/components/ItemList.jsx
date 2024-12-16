@@ -3,7 +3,7 @@ import Item from './Item'
 const ItemList = ({products}) => {
   return (
     <>
-        <div className="d-flex align-content-between flex-wrap" style={{ backgroundColor: '#000' }} >
+        <div className="d-flex align-content-between flex-wrap" style={{ backgroundColor: '#D2B400' }} >
             {products.map((product) => <Item key={product.id} product={product}/>
             )}
         </div>
