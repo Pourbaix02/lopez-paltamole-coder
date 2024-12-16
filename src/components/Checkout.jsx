@@ -1,54 +1,56 @@
-import { useState } from "react"
-import { useCart } from "../context/CartContext"
+import { useState, useContext } from "react"
 import { collection, serverTimestamp, addDoc } from "firebase/firestore"
 import { db } from "../service/firebase"
 import { Link } from "react-router-dom"
+import { CartContext } from '../context/CartContext'
 
 const Checkout = () => {
     const [user, setUser] = useState({})
     const [validate, setValidate] = useState('')
     const [orderId, setOrderId] = useState('')
-    const {cart, cartTotal, clear} = useCart();
-
+    const {cart, cartTotal, clear}= useContext(CartContext)
     const userData = (e)=>{
         setUser(
             {
                 ...user,
-                [e.target.name]:e.target.value
+                [e.target.name]:e.target.value 
             }
         )
     }
-
-    const finalizarCompra = (e)=> {
-        e.preventDefault()
-        console.log("carrito actual:", cart)
-        if(!user.name || !user.lastname || !user.email || !user.address){
-            alert('los campos son obligatorios')
-        } else if (user.email !== validate) {
-            alert('Los emails deben ser iguales')
-        } else {
-            let order = {
-                buyer: user,
-                carrito: cart,
-                total: cartTotal(),
-                date: serverTimestamp()
-            }
-            const ventas = collection(db, "orders")
-            addDoc(ventas,order)
-            .then((res)=> {
-                // cart.forEach((item)=>{
-                //     const docRef = doc(db, "productos", item.id)
-                //     getDoc(docRef)
-                //     .then((dbDoc)=>{
-                //         updateDoc(docRef, {stock: dbDoc.data().stock - item.cantidad})
-                //     })
-                // })
-                setOrderId(res.id)
-                clear()
-            })
-            .catch((error) => console.log(error))
+  const finalizarCompra = (e)=>{
+    e.preventDefault()
+    if(!user.name || !user.lastname || !user.email || !user.address){
+        alert('Los campos son obligatorios')
+    }else if(user.email !== validate){
+        alert('Los mails deben ser iguales')
+    }else{
+        //objeto de la orden
+        let order = {
+            buyer: user,
+            carrito:cart,
+            total:cartTotal(),
+            date: serverTimestamp()
         }
+        //traer nuestra coleccion
+        const ventas = collection(db, "orders")
+        //agregamos un doc
+        addDoc(ventas,order)
+        .then((res)=>{
+            //actualizar el stock
+            //OPCIONAL
+            // cart.forEach((item)=>{
+            //     const docRef = doc(db, "productos", item.id)
+            //     getDoc(docRef)
+            //     .then((dbDoc)=>{
+            //         updateDoc(docRef, {stock: dbDoc.data().stock - item.cantidad})
+            //     })
+            // })
+            setOrderId(res.id)
+            clear()
+        })
+        .catch((error)=> console.log(error))
     }
+  }
 
   return (
     <div>

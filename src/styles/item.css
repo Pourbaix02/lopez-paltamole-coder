@@ -1,0 +1,20 @@
+@media (max-width: 768px) {
+    /* Para pantallas pequeñas, cambiamos la fuente y el padding */
+    .card-body {
+      padding: 0.3rem; /* Menos padding en pantallas pequeñas */
+    }
+  
+    .card-title {
+      font-size: 1rem; /* Fuente más grande en pantallas pequeñas */
+    }
+  
+    .card-text, .card-price {
+      font-size: 0.75rem; /* Reduce el tamaño del texto en pantallas más pequeñas */
+    }
+  
+    .btn {
+      font-size: 0.75rem; /* Botón más pequeño */
+      padding: 0.25rem 0.4rem; /* Menos padding en pantallas pequeñas */
+    }
+  }
+  
