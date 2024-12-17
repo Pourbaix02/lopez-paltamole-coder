@@ -9,7 +9,7 @@ const CartContainer = () => {
     const {cart} = useContext(CartContext)
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#000' , color: 'fff', paddingTop: '0px'}}>
       {
         !cart.length 
         ? <EmptyCart/>

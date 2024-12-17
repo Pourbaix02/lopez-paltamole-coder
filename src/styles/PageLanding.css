@@ -31,3 +31,13 @@
     width: 100%;
     height: 900px;
   }
+
+  .burguer-landing {
+    background-image: url('/public/burguer-landing.JPG'); /* Ruta de la imagen en la carpeta 'public' */
+    background-size: cover; /* Hace que la imagen cubra todo el espacio del div */
+    background-position: center; /* Centra la imagen en el div */
+    height: 300px; /* Altura del div (ajusta según lo necesites) */
+    border-radius: 15px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que la imagen no se desborde fuera del div */
+  }
+  

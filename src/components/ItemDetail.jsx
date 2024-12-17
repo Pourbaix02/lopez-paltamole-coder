@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import ItemCount from './ItemCount'
-import { Button } from 'react-bootstrap'
-import { useCart } from '../context/CartContext'
-import { Link } from 'react-router-dom'
-import { message } from 'antd' 
+import { useState } from "react";
+import ItemCount from "./ItemCount";
+import { Button } from "react-bootstrap";
+import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
+import { message } from "antd";
 
 const ItemDetail = ({ product }) => {
-  const [compra, setCompra] = useState(false)
-  const { addToCart } = useCart()
+  const [compra, setCompra] = useState(false);
+  const { addToCart } = useCart();
 
   const onAdd = (cantidad) => {
-    message.success(`Agregaste al carrito ${cantidad} ${product.title}`)
-    setCompra(true)
-    addToCart(product, cantidad)
-  }
+    message.success(`Agregaste al carrito ${cantidad} ${product.title}`);
+    setCompra(true);
+    addToCart(product, cantidad);
+  };
 
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
@@ -25,12 +25,12 @@ const ItemDetail = ({ product }) => {
               alt={product.title}
               className="img-fluid rounded-3 shadow-sm"
               style={{
-                maxHeight: '400px',
-                objectFit: 'cover',
-                transition: 'transform 0.3s ease',
+                maxHeight: "400px",
+                objectFit: "cover",
+                transition: "transform 0.3s ease",
               }}
-              onMouseOver={(e) => (e.target.style.transform = 'scale(1.05)')}
-              onMouseOut={(e) => (e.target.style.transform = 'scale(1)')}
+              onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
+              onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
             />
           </div>
           <div className="col-md-6">
@@ -39,10 +39,25 @@ const ItemDetail = ({ product }) => {
             <h3 className="text-success mb-4">Precio: ${product.price}</h3>
             {compra ? (
               <div className="d-flex gap-3">
-                <Button as={Link} to="/cart" variant="primary" className="px-4 py-2">
+                <Button
+                  as={Link}
+                  to="/cart"
+                  variant="primary"
+                  className="px-4 py-2"
+                  style={{
+                    backgroundColor: "#ADCD68",
+                    borderColor: "#ADCD68",
+                    color: "#fff",
+                  }}
+                >
                   Ir al carrito
                 </Button>
-                <Button as={Link} to="/store" variant="secondary" className="px-4 py-2">
+                <Button
+                  as={Link}
+                  to="/"
+                  variant="secondary"
+                  className="px-4 py-2"
+                >
                   Seguir comprando
                 </Button>
               </div>
@@ -53,8 +68,7 @@ const ItemDetail = ({ product }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ItemDetail
-
+export default ItemDetail;

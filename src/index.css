@@ -6,9 +6,10 @@
 }
 
 
-body {
+html, body {
   font-family: Arial, sans-serif; /* Cambia la fuente según tu preferencia */
   line-height: 1.6; /* Mejora la legibilidad */
+  background-color: #ADCD68;
 }
 
 ul, ol {

@@ -11,25 +11,24 @@ const Item = ({ product }) => {
           maxHeight: 200,
           width: 400,
           fontSize: "0.85rem",
-          border: "none", 
-          borderRadius: "0.25rem", 
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)", 
+          border: "none",
+          borderRadius: "0.25rem",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
         }}
       >
-        <div className="row no-gutters"> 
+        <div className="row no-gutters">
           <div
             className="d-flex col-md-4 justify-content-center"
             style={{
               backgroundImage: `url(${product.image})`,
-              backgroundSize: "cover", 
-              backgroundPosition: "center", 
-              height: "200px", 
-              boxSizing: "border-box", 
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "200px",
+              boxSizing: "border-box",
               borderTopLeftRadius: "0.25rem",
-              borderBottomLeftRadius: "0.25rem", 
+              borderBottomLeftRadius: "0.25rem",
             }}
-          >
-          </div>
+          ></div>
           <div className="col-md-8 d-flex flex-column">
             <div
               className="card-body"
@@ -49,7 +48,13 @@ const Item = ({ product }) => {
               <button
                 className="btn btn-primary btn-sm mx-2 my-2"
                 onClick={() => navigate(`/item/${product.id}`)}
-                style={{ padding: "0.3rem 0.5rem", fontSize: "0.75rem" }}
+                style={{
+                  padding: "0.3rem 0.5rem",
+                  fontSize: "0.75rem",
+                  backgroundColor: "#D2B400",
+                  borderColor: "#D2B400",
+                  color: "#fff",
+                }}
               >
                 Ver más
               </button>

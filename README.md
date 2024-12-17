@@ -55,7 +55,7 @@ Este comando abrirá la aplicación en `http://localhost:5173` en tu navegador.
 
 Si deseas ver el proyecto en línea, puedes ingresar al siguiente enlace:
 
-[Paltamole en Vivo](https://link-a-tu-app-en-produccion.com)
+[Paltamole en Vivo](https://lopez-paltamole-coder.vercel.app/)
 
 ---
 

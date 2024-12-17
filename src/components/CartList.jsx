@@ -6,7 +6,7 @@ const CartList = () => {
   const { cart, clear, cartTotal } = useCart();
 
   return (
-    <div className="container my-5">
+    <div className="container py-4 text-white">
       <h2 className="text-center mb-4">Tu Carrito de Compras</h2>
 
       <div className="cart-items mb-4">
@@ -21,16 +21,10 @@ const CartList = () => {
         </span>
 
         <div className="d-flex gap-3">
-          <button
-            className="btn btn-danger btn-lg px-4 py-2"
-            onClick={clear}
-          >
+          <button className="btn btn-danger btn-lg px-4 py-2" onClick={clear}>
             Borrar Carrito
           </button>
-          <Link
-            className="btn btn-success btn-lg px-4 py-2"
-            to="/checkout"
-          >
+          <Link className="btn btn-success btn-lg px-4 py-2" to="/checkout">
             Terminar Compra
           </Link>
         </div>
