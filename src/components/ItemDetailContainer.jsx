@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { collection, doc, getDoc } from 'firebase/firestore'
 import { db } from '../service/firebase'
 import Loader from './Loader'
+import { message } from 'antd'
 
 const ItemDetailContainer = () => {
 
@@ -20,7 +21,7 @@ const ItemDetailContainer = () => {
 
       getDoc(docRef)
       .then((res) => setProduct({id: res.id, ...res.data()}))
-      .catch((error)=> console.log(error))
+      .catch((error)=> message.error(error))
       .finally(() => setLoading(false))
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

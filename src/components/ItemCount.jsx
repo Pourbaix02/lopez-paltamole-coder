@@ -30,7 +30,7 @@ const ItemCount = ({stock, onAdd, initial}) => {
 
     return (
         <div className="d-flex flex-column align-items-center gap-3">
-          {/* Contador */}
+    
           <div className="d-flex align-items-center gap-2">
             <button className="btn btn-danger px-3" onClick={restar}>
               -
@@ -46,13 +46,12 @@ const ItemCount = ({stock, onAdd, initial}) => {
             </button>
           </div>
       
-          {/* Botón de Comprar */}
           <button 
             className="btn btn-primary px-4 py-2"
             onClick={onAddHandler} 
             disabled={isDisabled}
           >
-            Comprar
+            Agregar al carrito
           </button>
         </div>
       );

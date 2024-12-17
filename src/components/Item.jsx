@@ -11,25 +11,24 @@ const Item = ({ product }) => {
           maxHeight: 200,
           width: 400,
           fontSize: "0.85rem",
-          border: "none", // Elimina bordes para evitar el borde de la tarjeta si hay
-          borderRadius: "0.25rem", // Agrega bordes redondeados si lo deseas
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)", // Sombra sutil para darle más profundidad
+          border: "none", 
+          borderRadius: "0.25rem", 
+          boxShadow: "0 2px 10px rgba(0,0,0,0.1)", 
         }}
       >
-        <div className="row no-gutters"> {/* 'no-gutters' para eliminar los espacios entre columnas */}
+        <div className="row no-gutters"> 
           <div
             className="d-flex col-md-4 justify-content-center"
             style={{
               backgroundImage: `url(${product.image})`,
-              backgroundSize: "cover", // Asegura que la imagen cubra el div completamente
-              backgroundPosition: "center", // Centra la imagen
-              height: "200px", // Ajusta la altura del div
-              boxSizing: "border-box", // Asegura que el padding y bordes estén incluidos en las dimensiones del div
-              borderTopLeftRadius: "0.25rem", // Bordes redondeados superiores si se desea
-              borderBottomLeftRadius: "0.25rem", // Bordes redondeados inferiores si se desea
+              backgroundSize: "cover", 
+              backgroundPosition: "center", 
+              height: "200px", 
+              boxSizing: "border-box", 
+              borderTopLeftRadius: "0.25rem",
+              borderBottomLeftRadius: "0.25rem", 
             }}
           >
-            {/* Puedes agregar contenido adicional si es necesario dentro de este div */}
           </div>
           <div className="col-md-8 d-flex flex-column">
             <div

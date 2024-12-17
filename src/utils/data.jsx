@@ -80,7 +80,6 @@ const menuData = [
   export const fetchMenuData = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-          //esto lo hago para forzar fallas automaticas de mi mock API 10% de probabilidad de fallas
             const shouldFail = Math.random() < 0.1;
 
             if (shouldFail) {
@@ -98,7 +97,6 @@ export const fetchOneMenuData = (id) => {
     setTimeout(() => {
       
       const shouldFail = Math.random() < 0.1;
-//tambien quiero probar cuando falle
       if (shouldFail) {
         reject(new Error("Hubo un error al obtener el plato seleccionado"));
       } else {

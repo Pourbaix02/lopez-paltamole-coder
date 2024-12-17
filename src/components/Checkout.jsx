@@ -3,77 +3,109 @@ import { collection, serverTimestamp, addDoc } from "firebase/firestore"
 import { db } from "../service/firebase"
 import { Link } from "react-router-dom"
 import { CartContext } from '../context/CartContext'
+import { Button, Form, Container } from 'react-bootstrap'
+import { message } from 'antd'
 
 const Checkout = () => {
-    const [user, setUser] = useState({})
-    const [validate, setValidate] = useState('')
-    const [orderId, setOrderId] = useState('')
-    const {cart, cartTotal, clear}= useContext(CartContext)
-    const userData = (e)=>{
-        setUser(
-            {
-                ...user,
-                [e.target.name]:e.target.value 
-            }
-        )
-    }
-  const finalizarCompra = (e)=>{
+  const [user, setUser] = useState({})
+  const [validate, setValidate] = useState('')
+  const [orderId, setOrderId] = useState('')
+  const {cart, cartTotal, clear} = useContext(CartContext)
+
+  const userData = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const finalizarCompra = (e) => {
     e.preventDefault()
-    if(!user.name || !user.lastname || !user.email || !user.address){
-        alert('Los campos son obligatorios')
-    }else if(user.email !== validate){
-        alert('Los mails deben ser iguales')
-    }else{
-        //objeto de la orden
-        let order = {
-            buyer: user,
-            carrito:cart,
-            total:cartTotal(),
-            date: serverTimestamp()
-        }
-        //traer nuestra coleccion
-        const ventas = collection(db, "orders")
-        //agregamos un doc
-        addDoc(ventas,order)
-        .then((res)=>{
-            //actualizar el stock
-            //OPCIONAL
-            // cart.forEach((item)=>{
-            //     const docRef = doc(db, "productos", item.id)
-            //     getDoc(docRef)
-            //     .then((dbDoc)=>{
-            //         updateDoc(docRef, {stock: dbDoc.data().stock - item.cantidad})
-            //     })
-            // })
-            setOrderId(res.id)
-            clear()
+
+    if (!user.name || !user.lastname || !user.email || !user.address) {
+        message.error('Los campos son obligatorios') 
+    } else if (user.email !== validate) {
+        message.error('Los correos deben coincidir')
+    } else {
+        message.success('Orden enviada')
+      let order = {
+        buyer: user,
+        carrito: cart,
+        total: cartTotal(),
+        date: serverTimestamp()
+      }
+
+      const ventas = collection(db, "orders")
+
+      addDoc(ventas, order)
+        .then((res) => {
+          setOrderId(res.id)
+          clear()
+          message.success(`¡Compra realizada! ID de orden: ${res.id}`)
         })
-        .catch((error)=> console.log(error))
+        .catch((error) => message.error('Error: ', error))
     }
   }
 
   return (
-    <div>
-        {orderId !== '' ? <div>
-                    <h4>Generaste bien tu orden!</h4>
-                    <h5>El id es: {orderId}</h5>
-                    <Link to='/'>Volver al inicio</Link>
+    <Container className="my-5">
+      {orderId !== '' ? (
+        <div className="text-center">
+          <h4>¡Generaste bien tu orden!</h4>
+          <h5>El id es: {orderId}</h5>
+          <Link to='/store' className="btn btn-primary mt-3">Volver a la tienda</Link>
         </div>
-        :
+      ) : (
         <div>
-      <h4>Completa tus datos</h4>
-      <form className='d-flex flex-column align-items-center' onSubmit={finalizarCompra}>
-            <input type="text" name='name' placeholder='Ingreso su nombre' onChange={userData}/>
-            <input type="text" name='lastname' placeholder='Ingreso su apellido' onChange={userData}/>
-            <input type="text" name='address' placeholder='Ingrese su dirección' onChange={userData}/>
-            <input type="email" name='email' placeholder='Ingrese su correo' onChange={userData}/>
-            <input type="email" name='second-email' placeholder='Repita su correo' onChange={(e)=> setValidate(e.target.value)}/>
-            <input type="text" />
-            <input type="text" />
-            <button className='btn btn-success' type="submit">Enviar</button>
-      </form>
-    </div>}
-    </div>
+          <h4 className="text-center mb-4">Completa tus datos</h4>
+          <Form className='d-flex flex-column align-items-center' onSubmit={finalizarCompra}>
+            <Form.Group className="mb-3 w-75" controlId="formName">
+              <Form.Control 
+                type="text" 
+                name='name' 
+                placeholder='Nombre' 
+                onChange={userData} 
+              />
+            </Form.Group>
+            <Form.Group className="mb-3 w-75" controlId="formLastname">
+              <Form.Control 
+                type="text" 
+                name='lastname' 
+                placeholder='Apellido' 
+                onChange={userData}  
+              />
+            </Form.Group>
+            <Form.Group className="mb-3 w-75" controlId="formAddress">
+              <Form.Control 
+                type="text" 
+                name='address' 
+                placeholder='Dirección' 
+                onChange={userData}  
+              />
+            </Form.Group>
+            <Form.Group className="mb-3 w-75" controlId="formEmail">
+              <Form.Control 
+                type="email" 
+                name='email' 
+                placeholder='Correo electrónico' 
+                onChange={userData}  
+              />
+            </Form.Group>
+            <Form.Group className="mb-3 w-75" controlId="formSecondEmail">
+              <Form.Control 
+                type="email" 
+                name='second-email' 
+                placeholder='Repita su correo' 
+                onChange={(e) => setValidate(e.target.value)}  
+              />
+            </Form.Group>
+            <Button variant="success" type="submit" className="w-75">
+              Finalizar compra
+            </Button>
+          </Form>
+        </div>
+      )}
+    </Container>
   )
 }
 

@@ -1,13 +1,21 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const EmptyCart = () => {
   return (
-    <div>
-      <h2>Tu carrito está vacío!</h2>
-      <h4>Te invitamos a ver nuestros productos</h4>
-      <Link to='/' className='btn btn-dark'>Ir a comprar</Link>
+    <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: "80vh" }}>
+      <div className="text-center">
+        <h2 className="display-4 text-muted">¡Tu carrito está vacío!</h2>
+        <h4 className="mb-4">¡Te invitamos a ver nuestros productos y añadirlos a tu carrito!</h4>
+        <Link 
+          to="/store" 
+          className="btn btn-dark btn-lg px-4 py-2 shadow-lg"
+          style={{ fontSize: "1rem" }}
+        >
+          Ir a comprar
+        </Link>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default EmptyCart
+export default EmptyCart;

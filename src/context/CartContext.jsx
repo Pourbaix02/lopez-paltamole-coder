@@ -1,10 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useEffect, useState } from "react";
 
-import { createContext, useContext, useState } from "react";
+const prodFromLocalStorage = JSON.parse(localStorage.getItem('carrito')) || []
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(prodFromLocalStorage);
+
+  useEffect(()=>{
+    localStorage.setItem('carrito', JSON.stringify(cart))
+
+  },[cart])
+
 
   const addToCart = (item, qty) => {
     if (isInCart(item.id)) {

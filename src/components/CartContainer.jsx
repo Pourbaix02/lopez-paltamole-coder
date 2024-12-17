@@ -14,7 +14,6 @@ const CartContainer = () => {
         !cart.length 
         ? <EmptyCart/>
         : <div>
-            <h2>Tu carrrito:</h2>
             <CartList/>
         </div>
       }

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import {db} from "../service/firebase";
 import Loader from "./Loader";
+import { message } from "antd";
 
 
 
@@ -31,7 +32,7 @@ const ItemListContainer = () => {
             })
             setProducts(list)
         })
-        .catch((error)=> console.log(error))
+        .catch((error)=> message.error(error))
         .finally(()=> setLoading(false))
         
 
@@ -50,5 +51,3 @@ const ItemListContainer = () => {
     
 }
 export default ItemListContainer;
-
-// itemlist agregar un div con d-flex justify context space between
